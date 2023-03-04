@@ -1,0 +1,77 @@
+{
+  "name": "m68k-mot-syntax",
+  "displayName": "m68k-mot-syntax",
+  "description": "Yet another Motorola 68k MOT assembly syntax highlighting expansion",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "sega genesis",
+    "sega mega drive",
+    "Motorola",
+    "motorola 68000",
+    "motorola 68k",
+    "vasm"
+  ],
+  "icon": "./images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+
+
+  "contributes": {
+    "languages": [{
+      "id": "m68k",
+      "aliases": ["Motorola 68k Assembly", "m68k"],
+      "extensions": [".asm",".vasm",".68k",".m68k"],
+      "configuration": "./language-configuration.json"
+    }],
+
+    "grammars": [{
+      "language": "m68k",
+      "scopeName": "source.m68k",
+      "path": "./syntaxes/m68k.tmLanguage.json"
+    }],
+
+    "configurationDefaults": {
+      "[m68k]": {
+        "editor.semanticHighlighting.enabled": true
+      },
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "comment.line",
+            "settings": {
+              "fontStyle": "italic"
+            }
+          },
+          {
+            "scope": "keyword.operator",
+            "settings": {
+              "foreground": "#FFFFFF",
+              "fontStyle": "italic bold"
+            }
+          },
+          {
+            "scope": "entity.name.section",
+            "settings": {
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "scope": "storage.type",
+            "settings": {
+              "fontStyle": "bold"
+            }
+          }
+        ]
+      }
+    }
+
+  }
+}

@@ -1,0 +1,89 @@
+{
+	"name": "Motorola 68k Assembly",
+
+	"patterns": [
+		{"include": "#comment"},
+		{"include": "#register"},
+		{"include": "#value"},
+		{"include": "#directive"},
+		{"include": "#instruction"},
+		{"include": "#label"},
+		{"include": "#other"}
+	],
+
+	"repository": {
+
+		"comment": {
+			"patterns": [{
+				"name": "comment.line",
+				"match": ";.*"
+			}]
+		},
+
+		"register": {
+			"patterns" : [{
+					"name": "storage.type",
+					"match": "(?<!\\w)(?i:d0|d1|d2|d3|d4|d5|d6|d7|a0|a1|a2|a3|a4|a5|a6|a7|sr|sp|ssp|usp)(?!\\w)"
+				}]
+		},
+
+		"value": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "(?<!\\w)(?i:[\\d$#%]([0-9]|[a-f])*)"
+				},
+				{
+					"name": "string.quoted.single",
+					"match": "'.*'"
+				},
+				{
+					"name": "string.quoted.double",
+					"match": "\\\".*\\\""
+				}
+			]
+		},
+
+		"directive": {
+			"patterns": [
+				{
+					"name": "storage.type",
+					"match": "\\s+(?i:dc|ds|endm|endr|equ|include|macro|org|rept|rs|rsset|even)[\\.\\s]"
+				}]
+		},
+
+		"instruction": {
+			"patterns": [
+				{
+					"name": "support.function.arithmetics",
+					"match": "\\s+(?i:add|addi|clr|cmp|cmpi|lea|move|movem|movep|muls|mulu|neg|sub|subi|swap)(?=\\.|\\s)"
+				},
+				{
+					"name": "support.function.bitwiseArithmetics",
+					"match": "\\s+(?i:and|andi|asl|asr|bchg|bclr|btst|eor|lsl|lsr|not|or|rol|ror|tst)[\\.\\s]"
+				},
+				{
+					"name": "support.function.branching",
+					"match": "\\s+(?i:bcc|bcs|beq|bge|bgt|bhi|blt|bmi|bne|bpl|bra|bsr|dbf|dbra|jmp|jsr|nop|rte|rts)[\\.\\s]"
+				}
+			]
+		},
+
+		"label": {
+			"patterns": [{
+				"name": "entity.name.section",
+				"match": "(?i:.+(?=:))|(?i:\\w*(?=\\s+equ|rs|dc|ds))"
+			}]
+		},
+
+		"other": {
+			"patterns": [{
+				"name": "keyword.operator",
+				"match": "(?i:\\.[bwls]|[+\\-*&|:.,()!<>/\\\\])"
+			}]
+		}
+
+	},
+
+	"scopeName": "source.m68k"
+}
