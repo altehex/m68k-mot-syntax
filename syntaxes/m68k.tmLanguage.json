@@ -48,7 +48,7 @@
 			"patterns": [
 				{
 					"name": "storage.type",
-					"match": "\\s+(?i:dc|ds|endm|endr|equ|include|macro|org|rept|rs|rsset|even)[\\.\\s]"
+					"match": "\\s+(?i:dc|ds|endm|endr|equ|include|macro|org|rept|rs|rsset|even)(?=\\.|\\s)"
 				}]
 		},
 
@@ -60,11 +60,11 @@
 				},
 				{
 					"name": "support.function.bitwiseArithmetics",
-					"match": "\\s+(?i:and|andi|asl|asr|bchg|bclr|btst|eor|lsl|lsr|not|or|rol|ror|tst)[\\.\\s]"
+					"match": "\\s+(?i:and|andi|asl|asr|bchg|bclr|btst|eor|lsl|lsr|not|or|rol|ror|tst)(?=\\.|\\s)"
 				},
 				{
 					"name": "support.function.branching",
-					"match": "\\s+(?i:bcc|bcs|beq|bge|bgt|bhi|blt|bmi|bne|bpl|bra|bsr|dbf|dbra|jmp|jsr|nop|rte|rts)[\\.\\s]"
+					"match": "\\s+(?i:bcc|bcs|beq|bge|bgt|bhi|blt|bmi|bne|bpl|bra|bsr|dbf|dbra|jmp|jsr|nop|rte|rts)(?=\\.|\\s)"
 				}
 			]
 		},
