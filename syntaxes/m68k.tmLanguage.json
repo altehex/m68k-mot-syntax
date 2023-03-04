@@ -72,7 +72,7 @@
 		"label": {
 			"patterns": [{
 				"name": "entity.name.section",
-				"match": "(?i:.+(?=:))|(?i:\\w*(?=\\s+equ|rs|dc|ds))"
+				"match": "(?i:.+(?=:))|(?i:\\w*(?=\\s+equ|rs\\.|dc\\.|ds\\.))"
 			}]
 		},
 
